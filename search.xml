@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Nexus</title>
+      <link href="/2018/11/16/nexus/"/>
+      <url>/2018/11/16/nexus/</url>
+      
+        <content type="html"><![CDATA[<h1 id="搭建私服的必要性"><a href="#搭建私服的必要性" class="headerlink" title="搭建私服的必要性"></a>搭建私服的必要性</h1><p>开发团队为了提高开发效率，都会使用项目构建工具进行开发。常见的构建工具有Ant、Grandle和Maven等。使用构建工具，都需要管理各种依赖的插件。考虑到开发效率，就需要搭建私服。使用私服的好处如下:</p><ol><li>节省外网带宽</li><li>加速Maven构建,提高效率</li><li>内部部署构件</li><li>灵活的安全和权限管理</li></ol><h1 id="常见的私服软件"><a href="#常见的私服软件" class="headerlink" title="常见的私服软件"></a>常见的私服软件</h1><ol><li>Apache基金会的Archiva——开源。</li><li>JFrog的Artifatory——核心开源。</li><li>Sonatype的Nexus——核心开源，具有社区版本免费使用。最流行的Maven仓库管理软件。</li></ol><h1 id="在Windows环境下搭建Maven私服-基于Nexus3"><a href="#在Windows环境下搭建Maven私服-基于Nexus3" class="headerlink" title="在Windows环境下搭建Maven私服(基于Nexus3)"></a>在Windows环境下搭建Maven私服(基于Nexus3)</h1><h2 id="Windows搭建Nexus步骤"><a href="#Windows搭建Nexus步骤" class="headerlink" title="Windows搭建Nexus步骤:"></a>Windows搭建Nexus步骤:</h2><h3 id="首先安装JDK"><a href="#首先安装JDK" class="headerlink" title="首先安装JDK"></a>首先安装JDK</h3><p>Nexus官方推荐JDK1.7以上，但不推荐JDK1.9，此处选用的JDK1.8。</p><h3 id="下载Nexus并安装配置"><a href="#下载Nexus并安装配置" class="headerlink" title="下载Nexus并安装配置"></a>下载Nexus并安装配置</h3><p>下载地址:<a href="https://www.sonatype.com/download-oss-sonatype" target="_blank" rel="noopener">Nexus3</a>。Nexus3版本支持OSX、Windows、Unix，在此下载Windows版本。</p><p>下载后解压到安装目录即可，解压后进入目录会看到两个文件夹，如：nexus-3.x.x-xx、sonatype-work，进入nexus-3.x.x-xx目录的etc文件夹中，可以编辑nexus配置。配置文件是：nexus-default.properties。若用默认配置要保证8081端口不被占用。</p><p>通过CMD进入nexus-3.x.x-xx文件夹的bin目录运行nexus.exe /run，等待启动完成，通过访问 <a href="http://localhost:8081" target="_blank" rel="noopener">http://localhost:8081</a> 即可进入nexus操作界面。通过Sign In登录，用户名admin，密码admin123。登陆成功，至此Nexus安装成功。</p><h3 id="将Nexus注册为Windows服务"><a href="#将Nexus注册为Windows服务" class="headerlink" title="将Nexus注册为Windows服务"></a>将Nexus注册为Windows服务</h3><p>以管理员身份进入CMD命令行，进入Nexus安装目录后在nexus-3.x.x-xx/bin文件夹下找到nexus.exe，通过</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nexus.exe /install &lt;optional-service-name&gt;</span><br></pre></td></tr></table></figure><p>将Nexus注册为Windows服务后可以通过以下命令来启动或关闭Nexus。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net start &lt;optional-service-name&gt;</span><br><span class="line">net stop &lt;optional-service-name&gt;</span><br></pre></td></tr></table></figure><p>特殊说明：&lt;optional-service-name&gt;为服务名，随便设置。</p><p>常用命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 运行</span><br><span class="line">nexus.exe /run</span><br><span class="line">// 安装或卸载系统服务</span><br><span class="line">nexus.exe /install &lt;optional-service-name&gt;</span><br><span class="line">nexus.exe /uninstall &lt;optional-service-name&gt;</span><br><span class="line">// 启动或停止Nexus</span><br><span class="line">nexus.exe /start &lt;optional-service-name&gt;</span><br><span class="line">nexus.exe /stop &lt;optional-service-name&gt;</span><br></pre></td></tr></table></figure><h1 id="在Linux环境下搭建Maven私服-基于Nexus3"><a href="#在Linux环境下搭建Maven私服-基于Nexus3" class="headerlink" title="在Linux环境下搭建Maven私服(基于Nexus3)"></a>在Linux环境下搭建Maven私服(基于Nexus3)</h1><h2 id="Linux搭建Nexus步骤"><a href="#Linux搭建Nexus步骤" class="headerlink" title="Linux搭建Nexus步骤:"></a>Linux搭建Nexus步骤:</h2><h3 id="首先安装JDK-1"><a href="#首先安装JDK-1" class="headerlink" title="首先安装JDK"></a>首先安装JDK</h3><p>Nexus官方推荐JDK1.7以上，但不推荐JDK1.9，此处选用的JDK1.8。</p><p>下载JDK，到Oracle官网下载后通过Xshell、Xftp上传到服务器上，或者通过Linux下载文件命令进行下载。</p><p>通过解压命令解压上传的安装包：tar -zxvf 压缩文件路径 -C 目的文件路径</p><p>配置java环境变量</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br></pre></td></tr></table></figure><p>在profile文件中增加如下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=JDK安装目录</span><br><span class="line">export CLASSPATH=$CLASSPATH:.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">//保存退出后通过如下命令使环境变量生效</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure><p>运行命令：java、javac、java -version测试是否安装成功</p><h3 id="下载Nexus并安装配置-1"><a href="#下载Nexus并安装配置-1" class="headerlink" title="下载Nexus并安装配置"></a>下载Nexus并安装配置</h3><p>下载地址:<a href="https://www.sonatype.com/download-oss-sonatype" target="_blank" rel="noopener">Nexus3</a>。Nexus3版本支持OSX、Windows、Unix，在此下载Unix版本。</p><p>下载Unix版本就可以，通过Xshell、Xftp上传到服务器上，或者通过Linux下载文件命令进行下载。</p><p>通过解压命令解压上传的安装包：tar -zxvf 压缩文件路径 -C 目的文件路径</p><p>进入解压目录可以看到nexus-3.x.x-xx、sonatype-work这两个文件夹，进入nexus-3.x.x-xx/bin下通过以下命令进行启动：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 启动nexus</span><br><span class="line">nexus run</span><br></pre></td></tr></table></figure><p>若启动成功后通过 <a href="http://ip:8081" target="_blank" rel="noopener">http://ip:8081</a> 无法访问即防火墙问题</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// Centos7防火墙为firewall、Centos6防火墙为iptables</span><br><span class="line">firewall-cmd --permanent --add-port=8081/tcp</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure><p>通过 <a href="http://ip:8081" target="_blank" rel="noopener">http://ip:8081</a> 进行访问Nexus操作界面。通过Sign In登录，用户名admin，密码admin123。登陆成功，至此Nexus安装成功。</p><h3 id="将Nexus注册为Linux服务"><a href="#将Nexus注册为Linux服务" class="headerlink" title="将Nexus注册为Linux服务"></a>将Nexus注册为Linux服务</h3><p>在/etc/init.d下建立nexus软链接</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ln -s nexus安装目录/nexus-3.x.x.x-xx/bin/nexus /etc/init.d/nexus</span><br><span class="line">chmod 755 /etc/init.d/nexus</span><br><span class="line">cd /etc/init.d</span><br><span class="line">vi /etc/init.d/nexus</span><br><span class="line">//将INSTALL4J_JAVA_HOME_OVERRIDE属性配置成JDK安装目录即可，保存并退出。</span><br><span class="line">chkconfig --add nexus</span><br></pre></td></tr></table></figure><p>至此就可以通过：service nexus {start|stop|status}等命令来操作Nexus</p><h3 id="提示：linux文件句柄为4096而nexus需要配置为65536"><a href="#提示：linux文件句柄为4096而nexus需要配置为65536" class="headerlink" title="提示：linux文件句柄为4096而nexus需要配置为65536"></a>提示：linux文件句柄为4096而nexus需要配置为65536</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 增加ulimit -HSn 65536</span><br><span class="line">vi /etc/security/limits.conf</span><br><span class="line">user soft nofile 文件句柄大小</span><br><span class="line">user hard nofile 65536</span><br><span class="line">// 说明：user为登录操作系统用户名，如root。</span><br></pre></td></tr></table></figure><p>退出从新登陆即可。通过ulimit -a查看文件句柄。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> nexus </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> nexus </tag>
+            
+            <tag> maven </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>spring_annotation_enable</title>
+      <link href="/2018/01/09/spring-annotation-enable/"/>
+      <url>/2018/01/09/spring-annotation-enable/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Enable-注解"><a href="#Enable-注解" class="headerlink" title="Enable*注解"></a>Enable*注解</h1><ul><li>@EnableAspectJAutoProxy开启对AspectJ自动代理的支持</li><li>@EnableAsync开启异步方法的支持</li><li>@EnableScheduling开启计划任务的支持</li><li>@EnableWebMvc开启Web MVC的配置支持</li><li>@EnableConfigurationProperties开启对@ConfigurationProperties注解配置Bean的支持</li><li>@EnableJpaRepositories开启对Spring Data JPA Repository的支持</li><li>@EnableTransactionManagement开启注解式事务的支持</li><li>@EnableCaching开启注解式的缓存支持</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring </tag>
+            
+            <tag> Annotation </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JAVA异常</title>
+      <link href="/2017/11/28/exception/"/>
+      <url>/2017/11/28/exception/</url>
+      
+        <content type="html"><![CDATA[<h1 id="JAVA异常处理过程"><a href="#JAVA异常处理过程" class="headerlink" title="JAVA异常处理过程"></a>JAVA异常处理过程</h1><ol><li>JAVA采用面向对象的方式来处理异常的。</li><li>抛出异常：在执行一个方法时，如果发生异常，则这个方法生成代表该异常的一个对象，停止当前执行路径，并把异常对象提交给JRE。</li><li>捕获异常：JRE得到该异常后，寻找相应的代码来处理该异常。JRE在方法的调用栈中查找，从生成异常的方法开始回溯，直到找到相应的异常处理代码为止。</li></ol><h1 id="JAVA捕获异常"><a href="#JAVA捕获异常" class="headerlink" title="JAVA捕获异常"></a>JAVA捕获异常</h1><h2 id="JRE捕获异常"><a href="#JRE捕获异常" class="headerlink" title="JRE捕获异常"></a>JRE捕获异常</h2><p><strong>例如：int i = 1/0;编译器未作出检查抛出的异常为UnCheckedException，JRE自动new异常对象进行抛出。</strong></p><h2 id="手动捕获异常-try-catch块"><a href="#手动捕获异常-try-catch块" class="headerlink" title="手动捕获异常(try catch块)"></a>手动捕获异常(try catch块)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//代码</span></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            <span class="comment">//处理代码时发生异常</span></span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//无论是否发生异常都执行的代码块</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><h1 id="JAVA常见异常"><a href="#JAVA常见异常" class="headerlink" title="JAVA常见异常"></a>JAVA常见异常</h1><ul><li>Java.lang.NullPointerException (空指针异常)</li><li>java.lang.ClassNotFoundException (指定的类不存在)<ul><li>这里主要考虑一下类的名称和路径是否正确即可，通常都是程序试图通过字符串来加载某个类时可能引发异常。</li><li>例如：调用Class.forName();调用ClassLoad的finaSystemClass();或者LoadClass();</li></ul></li><li>java.lang.NumberFormatException (字符串转换为数字异常)</li><li>java.lang.IndexOutOfBoundsException (数组下标越界异常)</li><li>java.lang.IllegalArgumentException (方法的参数错误)<ul><li>比如g.setColor(int red,int green,int blue)这个方法中的三个值，如果有超过２５５的也会出现这个异常，因此一旦发现这个异常，我们要做的，就是赶紧去检查一下方法调用中的参数传递是不是出现了错误。</li></ul></li><li>java.lang.IllegalAccessException (没有访问权限)</li><li>java.lang.ArithmeticException (数学运算异常)<ul><li>当算术运算中出现了除以零这样的运算就会出这样的异常。</li></ul></li><li>java.lang.ClassCastException (数据类型转换异常)</li><li>java.lang.FileNotFoundException (文件未找到异常)<ul><li>当程序试图打开一个不存在的文件进行读写时将会引发该异常。该异常由FileInputStream,FileOutputStream,RandomAccessFile的构造器声明抛出即使被操作的文件存在，但是由于某些原因不可访问，比如打开一个只读文件进行写入，这些构造方法仍然会引发异常</li></ul></li><li>java.lang.ArrayStoreException (数组存储异常)<ul><li>将类型不兼容类型的对象存入数组时将引发异常</li></ul></li><li>java.lang.NoSuchMethodException (方法不存在异常)<ul><li>当程序试图通过反射来创建对象，访问(修改或读取)某个方法，但是该方法不存在就会引发异常</li></ul></li><li>java.lang.NoSuchFiledException (Filed不存在异常)<ul><li>当程序试图通过反射来创建对象，访问(修改或读取)某个filed，但是该filed不存在就会引发异常</li></ul></li><li>java.lang.EOFException (文件已结束异常)<ul><li>当程序在输入的过程中遇到文件或流的结尾时，引发异常。因此该异常用于检查是否达到文件或流的结尾</li></ul></li><li>java.lang.InstantiationException (实例化异常)</li><li>java.lang.InterruptedException (被中止异常)<ul><li>当某个线程处于长时间的等待、休眠或其他暂停状态，而此时其他的线程通过Thread的interrupt方法终止该线程时抛出该异常。</li></ul></li><li>java.lang.OutOfMemoryException (内存不足错误)<ul><li>当可用内存不足以让Java虚拟机分配给一个对象时抛出该错误。</li></ul></li><li>java.lang.NoClassDefFoundException (未找到类定义错误)<ul><li>当Java虚拟机或者类装载器试图实例化某个类，而找不到该类的定义时抛出该错误。</li><li>违背安全原则异常：SecturityException</li><li>操作数据库异常：SQLException</li><li>输入输出异常：IOException</li><li>通信异常：SocketException</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JAVA异常 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>算法介绍</title>
+      <link href="/2017/11/27/algorithm/"/>
+      <url>/2017/11/27/algorithm/</url>
+      
+        <content type="html"><![CDATA[<h1 id="算法特性"><a href="#算法特性" class="headerlink" title="算法特性"></a>算法特性</h1><ol><li>有穷性: 一个算法必须在有穷步之后结束，即必须在有限时间内完成。</li><li>确定性: 算法的每一步必须有确切的定义，无二义性。算法的执行对应着的相同的输入仅有唯一的一条路经。</li><li>可行性: 算法中的每一步都可以通过已经实现的基本运算的有限次执行得以实现。</li><li>输入: 一个算法具有零个或多个输入，这些输入取自特定的数据对象集合。</li><li>输出: 一个算法具有一个或多个输出，这些输出同输入之间存在某种特定的关系。</li></ol><h1 id="设计一个好的算法通常要考虑什么"><a href="#设计一个好的算法通常要考虑什么" class="headerlink" title="设计一个好的算法通常要考虑什么"></a>设计一个好的算法通常要考虑什么</h1><ol><li>正确: 算法的执行结果应当满足预先规定的功能和性能要求。</li><li>可读: 一个算法应当思路清晰、层次分明、简单明了、易读易懂。</li><li>健壮: 当输入不合法数据时，应能作适当处理，不至引起严重后果。</li><li>高效: 有效使用存储空间和有较高的时间效率。</li></ol><h1 id="算法性能分析与度量"><a href="#算法性能分析与度量" class="headerlink" title="算法性能分析与度量"></a>算法性能分析与度量</h1><blockquote><p>我们可以从一个算法的时间复杂度与空间复杂度来评价算法的优劣。当我们将一个算法转换成程序并在计算机上执行时，其运行所需要的时间取决于下列因素：</p></blockquote><ol><li>硬件的速度。例如使用486 机还是使用586 机。</li><li>书写程序的语言。实现语言的级别越高，其执行效率就越低。</li><li>编译程序所生成目标代码的质量。对于代码优化较好的编译程序其所生成的程序质量较高。</li><li>问题的规模。例如，求100 以内的素数与求1000 以内的素数其执行时间必然是不同的。</li></ol><h1 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h1><blockquote><p>一个程序的时间复杂度（Time complexity）是指程序运行从开始到结束所需要的时间。<br>一个算法是由控制结构和原操作构成的，其执行时间取决于两者的综合效果。为了便于比较同一问题的不同的算法，通常的做法是：从算法中选取一种对于所研究的问题来说基本运算的原操作，以该原操作重复执行的次数作为算法的时间度量。一般情况下，算法中原操作重复执行的次数是规模n 的某个函数T(n)。许多时候要精确地计算T(n)是困难的，我们引入渐进时间复杂度在数量上估计一个算法的执行时间，也能够达到分析算法的目的。<br>通常用Ο(1)表示常数计算时间。常见的渐进时间复杂度有：</p></blockquote><ul><li>Ο(1)＜Ο(log<sup>n</sup>)＜Ο(n)＜Ο(n&#215;log<sup>n</sup>)＜Ο(n<sup>2</sup>)＜Ο(n<sup>3</sup>)＜Ο(2&#215;n)＜Ο(n!)＜Ο(n<sup>n</sup>)</li></ul><h1 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h1><blockquote><p>一个程序的空间复杂度（Space complexity）是指程序运行从开始到结束所需的存储量。<br>程序的一次运行是针对所求解的问题的某一特定实例而言的。例如，求解排序问题的排序算法的每次执行是对一组特定个数的元素进行排序。对该组元素的排序是排序问题的一个实例。元素个数可视为该实例的特征。程序运行所需的存储空间包括以下两部分：</p></blockquote><ol><li>固定部分。这部分空间与所处理数据的大小和个数无关，或者称与问题的实例的特征无关。主要包括程序代码、常量、简单变量、定长成分的结构变量所占的空间。</li><li>可变部分。这部分空间大小与算法在某次执行中处理的特定数据的大小和规模有关。例如100 个数据元素的排序算法与1000 个数据元素的排序算法所需的存储空间显然是不同的。</li></ol><h1 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h1><blockquote><p>数据是描述客观事物的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。数据不仅仅包括整型、实型等数值类型，还包括字符及声音、图像、视频等非数值类型</p></blockquote><h1 id="数据元素"><a href="#数据元素" class="headerlink" title="数据元素"></a>数据元素</h1><blockquote><p>数据元素是组成数据的、有一定意义的基本单位，在计算机中通常作为整体处理。</p></blockquote><h1 id="数据项"><a href="#数据项" class="headerlink" title="数据项"></a>数据项</h1><blockquote><p>数据项：一个数据元素可以由若干个数据项组成。<br>数据项是数据不可分割的最小单位。</p></blockquote><h1 id="数据对象"><a href="#数据对象" class="headerlink" title="数据对象"></a>数据对象</h1><blockquote><p>数据对象是性质相同的数据元素的集合，是数据的子集。</p></blockquote><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><blockquote><p>数据结构是相互之间存在一种或多种特定关系的数据元素的集合。</p></blockquote><h2 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h2><ol><li>集合结构：集合结构中的数据元素出了同属于一个集合外，他们之间没有其他关系。</li><li>线性结构：线性结构中的数据元素之间是一对一的关系。</li><li>树形结构：树形结构中的数据元素之间是一种一对多的层次关系。</li><li>图形结构：图形结构的数据元素是多对多的关系。</li></ol><h2 id="物理结构"><a href="#物理结构" class="headerlink" title="物理结构"></a>物理结构</h2><ol><li>顺序存储结构：是把数据元素存放在地址连续的存储单元里，其数据间的逻辑关系和物理关系是一直的。</li><li>链式存储结构：是把数据元素存放在任意的存储单元里，这组存储单元可以是连续的，也可以是不连续的。数据元素的存储关系并不能反映其逻辑关系，因此需要用一个指针存放数据元素的地址，这样通过地址就可以找到相关联数据元素的位置。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构与算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
