@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>JAVA基础(一)</title>
+      <link href="/2019/10/15/java-base1/"/>
+      <url>/2019/10/15/java-base1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="JAVA数据类型"><a href="#JAVA数据类型" class="headerlink" title="JAVA数据类型"></a>JAVA数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><table><thead><tr><th>类型</th><th align="center">byte</th><th align="center">short</th><th align="center">char</th><th align="center">int</th><th align="center">float</th><th align="center">double</th><th align="center">long</th><th align="right">boolean</th></tr></thead><tbody><tr><td>字节数</td><td align="center">1</td><td align="center">2</td><td align="center">2</td><td align="center">4</td><td align="center">4</td><td align="center">8</td><td align="center">8</td><td align="right">&nbsp;</td></tr></tbody></table><h2 id="C语言基本数据类型"><a href="#C语言基本数据类型" class="headerlink" title="C语言基本数据类型"></a>C语言基本数据类型</h2><table><thead><tr><th>类型</th><th align="center">char</th><th align="center">short</th><th align="center">int</th><th align="center">float</th><th align="center">double</th><th align="center">long</th><th align="center">signed</th><th align="right">unsigned</th></tr></thead><tbody><tr><td>字节数</td><td align="center">1</td><td align="center">2</td><td align="center">4</td><td align="center">4</td><td align="center">8</td><td align="center">4</td><td align="center">有符号</td><td align="right">无符号</td></tr></tbody></table><h1 id="JAVA与C数据类型转换"><a href="#JAVA与C数据类型转换" class="headerlink" title="JAVA与C数据类型转换"></a>JAVA与C数据类型转换</h1><ol><li>JAVA语言中的int、float、double、short类型，可以直接用c语言中的类型代替。</li><li>JAVA语言中的long可以用C语言中的long long代替</li><li>C语言中的char可以用JAVA语言中的byte代替</li><li>C语言中的long可以用JAVA语言中的int代替</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA Note </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Nexus</title>
       <link href="/2018/11/16/nexus/"/>
       <url>/2018/11/16/nexus/</url>
@@ -13,16 +38,16 @@
       
       <categories>
           
-          <category> nexus </category>
+          <category> Nexus </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> nexus </tag>
+            <tag> Nexus </tag>
             
-            <tag> maven </tag>
+            <tag> Maven </tag>
             
         </tags>
       
@@ -40,16 +65,16 @@
       
       <categories>
           
-          <category> JAVA </category>
+          <category> JAVA Note </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Spring </tag>
+            <tag> JAVA </tag>
             
-            <tag> Annotation </tag>
+            <tag> Spring </tag>
             
         </tags>
       
@@ -67,14 +92,14 @@
       
       <categories>
           
-          <category> JAVA </category>
+          <category> JAVA Note </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> JAVA异常 </tag>
+            <tag> JAVA </tag>
             
         </tags>
       

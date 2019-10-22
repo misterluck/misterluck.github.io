@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="JAVA异常处理过程 JAVA采用面向对象的方式来处理异常的。 抛出异常：在执行一个方法时，如果发生异常，则这个方法生成代表该异常的一个对象，停止当前执行路径，并把异常对象提交给JRE。 捕获异常：JRE得到该异常后，寻找相应的代码来处理该异常。JRE在方法的调用栈中查找，从生成异常的方法开始回溯，直到找到相应的异常处理代码为止。  JAVA捕获异常JRE捕获异常例如：int i = 1/0;编译">
+<meta name="description" content="JAVA数据类型基本数据类型   类型 byte short char int float double long boolean    字节数 1 2 2 4 4 8 8 &amp;nbsp;   C语言基本数据类型   类型 char short int float double long signed unsigned    字节数 1 2 4 4 8 4 有符号 无符号   JAVA与C数据类型转">
 <meta name="keywords" content="JAVA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA异常">
-<meta property="og:url" content="http://yoursite.com/2017/11/28/exception/index.html">
+<meta property="og:title" content="JAVA基础(一)">
+<meta property="og:url" content="http://yoursite.com/2019/10/15/java-base1/index.html">
 <meta property="og:site_name" content="SharedResource">
-<meta property="og:description" content="JAVA异常处理过程 JAVA采用面向对象的方式来处理异常的。 抛出异常：在执行一个方法时，如果发生异常，则这个方法生成代表该异常的一个对象，停止当前执行路径，并把异常对象提交给JRE。 捕获异常：JRE得到该异常后，寻找相应的代码来处理该异常。JRE在方法的调用栈中查找，从生成异常的方法开始回溯，直到找到相应的异常处理代码为止。  JAVA捕获异常JRE捕获异常例如：int i = 1/0;编译">
+<meta property="og:description" content="JAVA数据类型基本数据类型   类型 byte short char int float double long boolean    字节数 1 2 2 4 4 8 8 &amp;nbsp;   C语言基本数据类型   类型 char short int float double long signed unsigned    字节数 1 2 4 4 8 4 有符号 无符号   JAVA与C数据类型转">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-03T15:56:09.915Z">
+<meta property="og:updated_time" content="2019-10-22T12:20:53.078Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA异常">
-<meta name="twitter:description" content="JAVA异常处理过程 JAVA采用面向对象的方式来处理异常的。 抛出异常：在执行一个方法时，如果发生异常，则这个方法生成代表该异常的一个对象，停止当前执行路径，并把异常对象提交给JRE。 捕获异常：JRE得到该异常后，寻找相应的代码来处理该异常。JRE在方法的调用栈中查找，从生成异常的方法开始回溯，直到找到相应的异常处理代码为止。  JAVA捕获异常JRE捕获异常例如：int i = 1/0;编译">
+<meta name="twitter:title" content="JAVA基础(一)">
+<meta name="twitter:description" content="JAVA数据类型基本数据类型   类型 byte short char int float double long boolean    字节数 1 2 2 4 4 8 8 &amp;nbsp;   C语言基本数据类型   类型 char short int float double long signed unsigned    字节数 1 2 4 4 8 4 有符号 无符号   JAVA与C数据类型转">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/28/exception/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/15/java-base1/">
 
 
 
 
 
-  <title>JAVA异常 | SharedResource</title>
+  <title>JAVA基础(一) | SharedResource</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/exception/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/java-base1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MisterLuck">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JAVA异常</h1>
+          <h1 class="post-title" itemprop="name headline">JAVA基础(一)</h1>
         
 
         <div class="post-meta">
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T10:43:56+08:00">
-                2017-11-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-15T22:28:19+08:00">
+                2019-10-15
               </time>
             
 
@@ -395,71 +395,64 @@
       
 
       
-        <h1 id="JAVA异常处理过程"><a href="#JAVA异常处理过程" class="headerlink" title="JAVA异常处理过程"></a>JAVA异常处理过程</h1><ol>
-<li>JAVA采用面向对象的方式来处理异常的。</li>
-<li>抛出异常：在执行一个方法时，如果发生异常，则这个方法生成代表该异常的一个对象，停止当前执行路径，并把异常对象提交给JRE。</li>
-<li>捕获异常：JRE得到该异常后，寻找相应的代码来处理该异常。JRE在方法的调用栈中查找，从生成异常的方法开始回溯，直到找到相应的异常处理代码为止。</li>
+        <h1 id="JAVA数据类型"><a href="#JAVA数据类型" class="headerlink" title="JAVA数据类型"></a>JAVA数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">byte</th>
+<th align="center">short</th>
+<th align="center">char</th>
+<th align="center">int</th>
+<th align="center">float</th>
+<th align="center">double</th>
+<th align="center">long</th>
+<th align="right">boolean</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字节数</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">4</td>
+<td align="center">8</td>
+<td align="center">8</td>
+<td align="right">&nbsp;</td>
+</tr>
+</tbody></table>
+<h2 id="C语言基本数据类型"><a href="#C语言基本数据类型" class="headerlink" title="C语言基本数据类型"></a>C语言基本数据类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">char</th>
+<th align="center">short</th>
+<th align="center">int</th>
+<th align="center">float</th>
+<th align="center">double</th>
+<th align="center">long</th>
+<th align="center">signed</th>
+<th align="right">unsigned</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字节数</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">4</td>
+<td align="center">8</td>
+<td align="center">4</td>
+<td align="center">有符号</td>
+<td align="right">无符号</td>
+</tr>
+</tbody></table>
+<h1 id="JAVA与C数据类型转换"><a href="#JAVA与C数据类型转换" class="headerlink" title="JAVA与C数据类型转换"></a>JAVA与C数据类型转换</h1><ol>
+<li>JAVA语言中的int、float、double、short类型，可以直接用c语言中的类型代替。</li>
+<li>JAVA语言中的long可以用C语言中的long long代替</li>
+<li>C语言中的char可以用JAVA语言中的byte代替</li>
+<li>C语言中的long可以用JAVA语言中的int代替</li>
 </ol>
-<h1 id="JAVA捕获异常"><a href="#JAVA捕获异常" class="headerlink" title="JAVA捕获异常"></a>JAVA捕获异常</h1><h2 id="JRE捕获异常"><a href="#JRE捕获异常" class="headerlink" title="JRE捕获异常"></a>JRE捕获异常</h2><p><strong>例如：int i = 1/0;编译器未作出检查抛出的异常为UnCheckedException，JRE自动new异常对象进行抛出。</strong></p>
-<h2 id="手动捕获异常-try-catch块"><a href="#手动捕获异常-try-catch块" class="headerlink" title="手动捕获异常(try catch块)"></a>手动捕获异常(try catch块)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//代码</span></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            <span class="comment">//处理代码时发生异常</span></span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//无论是否发生异常都执行的代码块</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><h1 id="JAVA常见异常"><a href="#JAVA常见异常" class="headerlink" title="JAVA常见异常"></a>JAVA常见异常</h1><ul>
-<li>Java.lang.NullPointerException (空指针异常)</li>
-<li>java.lang.ClassNotFoundException (指定的类不存在)<ul>
-<li>这里主要考虑一下类的名称和路径是否正确即可，通常都是程序试图通过字符串来加载某个类时可能引发异常。</li>
-<li>例如：调用Class.forName();调用ClassLoad的finaSystemClass();或者LoadClass();</li>
-</ul>
-</li>
-<li>java.lang.NumberFormatException (字符串转换为数字异常)</li>
-<li>java.lang.IndexOutOfBoundsException (数组下标越界异常)</li>
-<li>java.lang.IllegalArgumentException (方法的参数错误)<ul>
-<li>比如g.setColor(int red,int green,int blue)这个方法中的三个值，如果有超过２５５的也会出现这个异常，因此一旦发现这个异常，我们要做的，就是赶紧去检查一下方法调用中的参数传递是不是出现了错误。</li>
-</ul>
-</li>
-<li>java.lang.IllegalAccessException (没有访问权限)</li>
-<li>java.lang.ArithmeticException (数学运算异常)<ul>
-<li>当算术运算中出现了除以零这样的运算就会出这样的异常。</li>
-</ul>
-</li>
-<li>java.lang.ClassCastException (数据类型转换异常)</li>
-<li>java.lang.FileNotFoundException (文件未找到异常)<ul>
-<li>当程序试图打开一个不存在的文件进行读写时将会引发该异常。该异常由FileInputStream,FileOutputStream,RandomAccessFile的构造器声明抛出即使被操作的文件存在，但是由于某些原因不可访问，比如打开一个只读文件进行写入，这些构造方法仍然会引发异常</li>
-</ul>
-</li>
-<li>java.lang.ArrayStoreException (数组存储异常)<ul>
-<li>将类型不兼容类型的对象存入数组时将引发异常</li>
-</ul>
-</li>
-<li>java.lang.NoSuchMethodException (方法不存在异常)<ul>
-<li>当程序试图通过反射来创建对象，访问(修改或读取)某个方法，但是该方法不存在就会引发异常</li>
-</ul>
-</li>
-<li>java.lang.NoSuchFiledException (Filed不存在异常)<ul>
-<li>当程序试图通过反射来创建对象，访问(修改或读取)某个filed，但是该filed不存在就会引发异常</li>
-</ul>
-</li>
-<li>java.lang.EOFException (文件已结束异常)<ul>
-<li>当程序在输入的过程中遇到文件或流的结尾时，引发异常。因此该异常用于检查是否达到文件或流的结尾</li>
-</ul>
-</li>
-<li>java.lang.InstantiationException (实例化异常)</li>
-<li>java.lang.InterruptedException (被中止异常)<ul>
-<li>当某个线程处于长时间的等待、休眠或其他暂停状态，而此时其他的线程通过Thread的interrupt方法终止该线程时抛出该异常。</li>
-</ul>
-</li>
-<li>java.lang.OutOfMemoryException (内存不足错误)<ul>
-<li>当可用内存不足以让Java虚拟机分配给一个对象时抛出该错误。</li>
-</ul>
-</li>
-<li>java.lang.NoClassDefFoundException (未找到类定义错误)<ul>
-<li>当Java虚拟机或者类装载器试图实例化某个类，而找不到该类的定义时抛出该错误。</li>
-<li>违背安全原则异常：SecturityException</li>
-<li>操作数据库异常：SQLException</li>
-<li>输入输出异常：IOException</li>
-<li>通信异常：SocketException</li>
-</ul>
-</li>
-</ul>
 
       
     </div>
@@ -500,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/27/algorithm/" rel="next" title="算法介绍">
-                <i class="fa fa-chevron-left"></i> 算法介绍
+              <a href="/2018/11/16/nexus/" rel="next" title="Nexus">
+                <i class="fa fa-chevron-left"></i> Nexus
               </a>
             
           </div>
@@ -509,10 +502,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/09/spring-annotation-enable/" rel="prev" title="spring_annotation_enable">
-                spring_annotation_enable <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -667,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA异常处理过程"><span class="nav-number">1.</span> <span class="nav-text">JAVA异常处理过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA捕获异常"><span class="nav-number">2.</span> <span class="nav-text">JAVA捕获异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JRE捕获异常"><span class="nav-number">2.1.</span> <span class="nav-text">JRE捕获异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动捕获异常-try-catch块"><span class="nav-number">2.2.</span> <span class="nav-text">手动捕获异常(try catch块)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义异常"><span class="nav-number">2.3.</span> <span class="nav-text">自定义异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA常见异常"><span class="nav-number">3.</span> <span class="nav-text">JAVA常见异常</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA数据类型"><span class="nav-number">1.</span> <span class="nav-text">JAVA数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C语言基本数据类型"><span class="nav-number">1.2.</span> <span class="nav-text">C语言基本数据类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA与C数据类型转换"><span class="nav-number">2.</span> <span class="nav-text">JAVA与C数据类型转换</span></a></li></ol></div>
             
 
           </div>
