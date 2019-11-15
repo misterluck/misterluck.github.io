@@ -36,7 +36,7 @@
     <link href="http://yoursite.com/2019/10/25/java-base2/"/>
     <id>http://yoursite.com/2019/10/25/java-base2/</id>
     <published>2019-10-25T03:58:02.000Z</published>
-    <updated>2019-11-15T09:53:38.813Z</updated>
+    <updated>2019-11-15T10:00:17.604Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Collection容器"><a href="#Collection容器" class="headerlink" title="Collection容器"></a>Collection容器</h1><h2 id="容器介绍"><a href="#容器介绍" class="headerlink" title="容器介绍"></a>容器介绍</h2><ul><li><p>Collection表示一组对象，它是集中、收集的意思，就是把一些数据收集起来。</p></li><li><p>Collection函数库在java.util包下的一些接口和类，类是用来产生对象存放数据用的，而接口是访问数据的方式。</p></li><li><p>Collection函数库与数组的两点不同：</p><ol><li>数组的容量是有限制的，而Collection库没有这样的限制，它容量可以自动的调节。</li><li>Collection函数库只能用来存放对象，而数组没有这样的限制。</li></ol></li><li><p>Collection接口是Collection层次结构中的根接口，它定义了一些最基本的访问方法，让我们能用统一的方式通过它或它的子接口来访问数据。</p></li><li><p>区别：Collection代表一组对象，Collection函数库就是JAVA中的集合框架，Collection接口是这个集合框架中的根接口。</p></li><li><p>存放在Collection库中的数据被称为元素(element)。</p></li></ul><p><img src="/.com//1573732480.jpg" alt="title"></p>]]></content>
     
