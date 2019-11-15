@@ -88,18 +88,20 @@
 
 
 
-<meta name="description" content="JAVA数据类型基本数据类型   类型 byte short char int float double long boolean    字节数 1 2 2 4 4 8 8 &amp;nbsp;   C语言基本数据类型   类型 char short int float double long signed unsigned    字节数 1 2 4 4 8 4 有符号 无符号   JAVA与C数据类型转">
+<meta name="description" content="Collection容器容器介绍 Collection表示一组对象，它是集中、收集的意思，就是把一些数据收集起来。  Collection函数库在java.util包下的一些接口和类，类是用来产生对象存放数据用的，而接口是访问数据的方式。  Collection函数库与数组的两点不同：  数组的容量是有限制的，而Collection库没有这样的限制，它容量可以自动的调节。 Collection函数">
 <meta name="keywords" content="JAVA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA基础(一)">
-<meta property="og:url" content="http://yoursite.com/2019/10/15/java-base1/index.html">
+<meta property="og:title" content="JAVA基础(二)">
+<meta property="og:url" content="http://yoursite.com/2019/10/25/java-base2/index.html">
 <meta property="og:site_name" content="SharedResource">
-<meta property="og:description" content="JAVA数据类型基本数据类型   类型 byte short char int float double long boolean    字节数 1 2 2 4 4 8 8 &amp;nbsp;   C语言基本数据类型   类型 char short int float double long signed unsigned    字节数 1 2 4 4 8 4 有符号 无符号   JAVA与C数据类型转">
+<meta property="og:description" content="Collection容器容器介绍 Collection表示一组对象，它是集中、收集的意思，就是把一些数据收集起来。  Collection函数库在java.util包下的一些接口和类，类是用来产生对象存放数据用的，而接口是访问数据的方式。  Collection函数库与数组的两点不同：  数组的容量是有限制的，而Collection库没有这样的限制，它容量可以自动的调节。 Collection函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-22T12:20:53.078Z">
+<meta property="og:image" content="http://yoursite.com/.com//1573732480.jpg">
+<meta property="og:updated_time" content="2019-11-15T09:53:38.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA基础(一)">
-<meta name="twitter:description" content="JAVA数据类型基本数据类型   类型 byte short char int float double long boolean    字节数 1 2 2 4 4 8 8 &amp;nbsp;   C语言基本数据类型   类型 char short int float double long signed unsigned    字节数 1 2 4 4 8 4 有符号 无符号   JAVA与C数据类型转">
+<meta name="twitter:title" content="JAVA基础(二)">
+<meta name="twitter:description" content="Collection容器容器介绍 Collection表示一组对象，它是集中、收集的意思，就是把一些数据收集起来。  Collection函数库在java.util包下的一些接口和类，类是用来产生对象存放数据用的，而接口是访问数据的方式。  Collection函数库与数组的两点不同：  数组的容量是有限制的，而Collection库没有这样的限制，它容量可以自动的调节。 Collection函数">
+<meta name="twitter:image" content="http://yoursite.com/.com//1573732480.jpg">
 
 
 
@@ -129,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/15/java-base1/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/25/java-base2/">
 
 
 
 
 
-  <title>JAVA基础(一) | SharedResource</title>
+  <title>JAVA基础(二) | SharedResource</title>
   
 
 
@@ -306,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/java-base1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/25/java-base2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MisterLuck">
@@ -323,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JAVA基础(一)</h1>
+          <h1 class="post-title" itemprop="name headline">JAVA基础(二)</h1>
         
 
         <div class="post-meta">
@@ -335,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-15T22:28:19+08:00">
-                2019-10-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-25T11:58:02+08:00">
+                2019-10-25
               </time>
             
 
@@ -395,64 +397,25 @@
       
 
       
-        <h1 id="JAVA数据类型"><a href="#JAVA数据类型" class="headerlink" title="JAVA数据类型"></a>JAVA数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><table>
-<thead>
-<tr>
-<th>类型</th>
-<th align="center">byte</th>
-<th align="center">short</th>
-<th align="center">char</th>
-<th align="center">int</th>
-<th align="center">float</th>
-<th align="center">double</th>
-<th align="center">long</th>
-<th align="right">boolean</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>字节数</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">2</td>
-<td align="center">4</td>
-<td align="center">4</td>
-<td align="center">8</td>
-<td align="center">8</td>
-<td align="right">&nbsp;</td>
-</tr>
-</tbody></table>
-<h2 id="C语言基本数据类型"><a href="#C语言基本数据类型" class="headerlink" title="C语言基本数据类型"></a>C语言基本数据类型</h2><table>
-<thead>
-<tr>
-<th>类型</th>
-<th align="center">char</th>
-<th align="center">short</th>
-<th align="center">int</th>
-<th align="center">float</th>
-<th align="center">double</th>
-<th align="center">long</th>
-<th align="center">signed</th>
-<th align="right">unsigned</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>字节数</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">4</td>
-<td align="center">4</td>
-<td align="center">8</td>
-<td align="center">4</td>
-<td align="center">有符号</td>
-<td align="right">无符号</td>
-</tr>
-</tbody></table>
-<h1 id="JAVA与C数据类型转换"><a href="#JAVA与C数据类型转换" class="headerlink" title="JAVA与C数据类型转换"></a>JAVA与C数据类型转换</h1><ol>
-<li>JAVA语言中的int、float、double、short类型，可以直接用c语言中的类型代替。</li>
-<li>JAVA语言中的long可以用C语言中的long long代替</li>
-<li>C语言中的char可以用JAVA语言中的byte代替</li>
-<li>C语言中的long可以用JAVA语言中的int代替</li>
+        <h1 id="Collection容器"><a href="#Collection容器" class="headerlink" title="Collection容器"></a>Collection容器</h1><h2 id="容器介绍"><a href="#容器介绍" class="headerlink" title="容器介绍"></a>容器介绍</h2><ul>
+<li><p>Collection表示一组对象，它是集中、收集的意思，就是把一些数据收集起来。</p>
+</li>
+<li><p>Collection函数库在java.util包下的一些接口和类，类是用来产生对象存放数据用的，而接口是访问数据的方式。</p>
+</li>
+<li><p>Collection函数库与数组的两点不同：</p>
+<ol>
+<li>数组的容量是有限制的，而Collection库没有这样的限制，它容量可以自动的调节。</li>
+<li>Collection函数库只能用来存放对象，而数组没有这样的限制。</li>
 </ol>
+</li>
+<li><p>Collection接口是Collection层次结构中的根接口，它定义了一些最基本的访问方法，让我们能用统一的方式通过它或它的子接口来访问数据。</p>
+</li>
+<li><p>区别：Collection代表一组对象，Collection函数库就是JAVA中的集合框架，Collection接口是这个集合框架中的根接口。</p>
+</li>
+<li><p>存放在Collection库中的数据被称为元素(element)。</p>
+</li>
+</ul>
+<p><img src="/.com//1573732480.jpg" alt="title"></p>
 
       
     </div>
@@ -493,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/16/nexus/" rel="next" title="Nexus">
-                <i class="fa fa-chevron-left"></i> Nexus
+              <a href="/2019/10/15/java-base1/" rel="next" title="JAVA基础(一)">
+                <i class="fa fa-chevron-left"></i> JAVA基础(一)
               </a>
             
           </div>
@@ -503,8 +466,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/25/java-base2/" rel="prev" title="JAVA基础(二)">
-                JAVA基础(二) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/11/14/java-base3/" rel="prev" title="java-base3">
+                java-base3 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -660,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA数据类型"><span class="nav-number">1.</span> <span class="nav-text">JAVA数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C语言基本数据类型"><span class="nav-number">1.2.</span> <span class="nav-text">C语言基本数据类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA与C数据类型转换"><span class="nav-number">2.</span> <span class="nav-text">JAVA与C数据类型转换</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection容器"><span class="nav-number">1.</span> <span class="nav-text">Collection容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#容器介绍"><span class="nav-number">1.1.</span> <span class="nav-text">容器介绍</span></a></li></ol></li></ol></div>
             
 
           </div>
