@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>JAVA基础(三)</title>
-      <link href="/2019/11/14/java-base3/"/>
-      <url>/2019/11/14/java-base3/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> JAVA Note </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> JAVA </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Nexus</title>
       <link href="/2018/11/16/nexus/"/>
       <url>/2018/11/16/nexus/</url>
@@ -75,31 +50,6 @@
             <tag> JAVA </tag>
             
             <tag> Spring </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>JAVA异常</title>
-      <link href="/2017/11/28/exception/"/>
-      <url>/2017/11/28/exception/</url>
-      
-        <content type="html"><![CDATA[<h1 id="JAVA异常处理过程"><a href="#JAVA异常处理过程" class="headerlink" title="JAVA异常处理过程"></a>JAVA异常处理过程</h1><ol><li>JAVA采用面向对象的方式来处理异常的。</li><li>抛出异常：在执行一个方法时，如果发生异常，则这个方法生成代表该异常的一个对象，停止当前执行路径，并把异常对象提交给JRE。</li><li>捕获异常：JRE得到该异常后，寻找相应的代码来处理该异常。JRE在方法的调用栈中查找，从生成异常的方法开始回溯，直到找到相应的异常处理代码为止。</li></ol><h1 id="JAVA捕获异常"><a href="#JAVA捕获异常" class="headerlink" title="JAVA捕获异常"></a>JAVA捕获异常</h1><h2 id="JRE捕获异常"><a href="#JRE捕获异常" class="headerlink" title="JRE捕获异常"></a>JRE捕获异常</h2><p><strong>例如：int i = 1/0;编译器未作出检查抛出的异常为UnCheckedException，JRE自动new异常对象进行抛出。</strong></p><h2 id="手动捕获异常-try-catch块"><a href="#手动捕获异常-try-catch块" class="headerlink" title="手动捕获异常(try catch块)"></a>手动捕获异常(try catch块)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//代码</span></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            <span class="comment">//处理代码时发生异常</span></span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//无论是否发生异常都执行的代码块</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><h1 id="JAVA常见异常"><a href="#JAVA常见异常" class="headerlink" title="JAVA常见异常"></a>JAVA常见异常</h1><ul><li>Java.lang.NullPointerException (空指针异常)</li><li>java.lang.ClassNotFoundException (指定的类不存在)<ul><li>这里主要考虑一下类的名称和路径是否正确即可，通常都是程序试图通过字符串来加载某个类时可能引发异常。</li><li>例如：调用Class.forName();调用ClassLoad的finaSystemClass();或者LoadClass();</li></ul></li><li>java.lang.NumberFormatException (字符串转换为数字异常)</li><li>java.lang.IndexOutOfBoundsException (数组下标越界异常)</li><li>java.lang.IllegalArgumentException (方法的参数错误)<ul><li>比如g.setColor(int red,int green,int blue)这个方法中的三个值，如果有超过２５５的也会出现这个异常，因此一旦发现这个异常，我们要做的，就是赶紧去检查一下方法调用中的参数传递是不是出现了错误。</li></ul></li><li>java.lang.IllegalAccessException (没有访问权限)</li><li>java.lang.ArithmeticException (数学运算异常)<ul><li>当算术运算中出现了除以零这样的运算就会出这样的异常。</li></ul></li><li>java.lang.ClassCastException (数据类型转换异常)</li><li>java.lang.FileNotFoundException (文件未找到异常)<ul><li>当程序试图打开一个不存在的文件进行读写时将会引发该异常。该异常由FileInputStream,FileOutputStream,RandomAccessFile的构造器声明抛出即使被操作的文件存在，但是由于某些原因不可访问，比如打开一个只读文件进行写入，这些构造方法仍然会引发异常</li></ul></li><li>java.lang.ArrayStoreException (数组存储异常)<ul><li>将类型不兼容类型的对象存入数组时将引发异常</li></ul></li><li>java.lang.NoSuchMethodException (方法不存在异常)<ul><li>当程序试图通过反射来创建对象，访问(修改或读取)某个方法，但是该方法不存在就会引发异常</li></ul></li><li>java.lang.NoSuchFiledException (Filed不存在异常)<ul><li>当程序试图通过反射来创建对象，访问(修改或读取)某个filed，但是该filed不存在就会引发异常</li></ul></li><li>java.lang.EOFException (文件已结束异常)<ul><li>当程序在输入的过程中遇到文件或流的结尾时，引发异常。因此该异常用于检查是否达到文件或流的结尾</li></ul></li><li>java.lang.InstantiationException (实例化异常)</li><li>java.lang.InterruptedException (被中止异常)<ul><li>当某个线程处于长时间的等待、休眠或其他暂停状态，而此时其他的线程通过Thread的interrupt方法终止该线程时抛出该异常。</li></ul></li><li>java.lang.OutOfMemoryException (内存不足错误)<ul><li>当可用内存不足以让Java虚拟机分配给一个对象时抛出该错误。</li></ul></li><li>java.lang.NoClassDefFoundException (未找到类定义错误)<ul><li>当Java虚拟机或者类装载器试图实例化某个类，而找不到该类的定义时抛出该错误。</li><li>违背安全原则异常：SecturityException</li><li>操作数据库异常：SQLException</li><li>输入输出异常：IOException</li><li>通信异常：SocketException</li></ul></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> JAVA Note </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> JAVA </tag>
             
         </tags>
       
@@ -160,7 +110,7 @@
     
     
     <entry>
-      <title>JAVA基础(二)</title>
+      <title>JAVA基础(三)</title>
       <link href="/2016/06/17/java-base2/"/>
       <url>/2016/06/17/java-base2/</url>
       
@@ -177,6 +127,35 @@
         <tags>
             
             <tag> JAVA </tag>
+            
+            <tag> Collection </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JAVA基础(二)</title>
+      <link href="/2016/06/16/java-base3/"/>
+      <url>/2016/06/16/java-base3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="JAVA异常处理过程"><a href="#JAVA异常处理过程" class="headerlink" title="JAVA异常处理过程"></a>JAVA异常处理过程</h1><ol><li>JAVA采用面向对象的方式来处理异常的。</li><li>抛出异常：在执行一个方法时，如果发生异常，则这个方法生成代表该异常的一个对象，停止当前执行路径，并把异常对象提交给JRE。</li><li>捕获异常：JRE得到该异常后，寻找相应的代码来处理该异常。JRE在方法的调用栈中查找，从生成异常的方法开始回溯，直到找到相应的异常处理代码为止。</li></ol><h1 id="JAVA捕获异常"><a href="#JAVA捕获异常" class="headerlink" title="JAVA捕获异常"></a>JAVA捕获异常</h1><h2 id="JRE捕获异常"><a href="#JRE捕获异常" class="headerlink" title="JRE捕获异常"></a>JRE捕获异常</h2><p><strong>例如：int i = 1/0;编译器未作出检查抛出的异常为UnCheckedException，JRE自动new异常对象进行抛出。</strong></p><h2 id="手动捕获异常-try-catch块"><a href="#手动捕获异常-try-catch块" class="headerlink" title="手动捕获异常(try catch块)"></a>手动捕获异常(try catch块)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//代码</span></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            <span class="comment">//处理代码时发生异常</span></span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//无论是否发生异常都执行的代码块</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><h1 id="JAVA常见异常"><a href="#JAVA常见异常" class="headerlink" title="JAVA常见异常"></a>JAVA常见异常</h1><ul><li>Java.lang.NullPointerException (空指针异常)</li><li>java.lang.ClassNotFoundException (指定的类不存在)<ul><li>这里主要考虑一下类的名称和路径是否正确即可，通常都是程序试图通过字符串来加载某个类时可能引发异常。</li><li>例如：调用Class.forName();调用ClassLoad的finaSystemClass();或者LoadClass();</li></ul></li><li>java.lang.NumberFormatException (字符串转换为数字异常)</li><li>java.lang.IndexOutOfBoundsException (数组下标越界异常)</li><li>java.lang.IllegalArgumentException (方法的参数错误)<ul><li>比如g.setColor(int red,int green,int blue)这个方法中的三个值，如果有超过２５５的也会出现这个异常，因此一旦发现这个异常，我们要做的，就是赶紧去检查一下方法调用中的参数传递是不是出现了错误。</li></ul></li><li>java.lang.IllegalAccessException (没有访问权限)</li><li>java.lang.ArithmeticException (数学运算异常)<ul><li>当算术运算中出现了除以零这样的运算就会出这样的异常。</li></ul></li><li>java.lang.ClassCastException (数据类型转换异常)</li><li>java.lang.FileNotFoundException (文件未找到异常)<ul><li>当程序试图打开一个不存在的文件进行读写时将会引发该异常。该异常由FileInputStream,FileOutputStream,RandomAccessFile的构造器声明抛出即使被操作的文件存在，但是由于某些原因不可访问，比如打开一个只读文件进行写入，这些构造方法仍然会引发异常</li></ul></li><li>java.lang.ArrayStoreException (数组存储异常)<ul><li>将类型不兼容类型的对象存入数组时将引发异常</li></ul></li><li>java.lang.NoSuchMethodException (方法不存在异常)<ul><li>当程序试图通过反射来创建对象，访问(修改或读取)某个方法，但是该方法不存在就会引发异常</li></ul></li><li>java.lang.NoSuchFiledException (Filed不存在异常)<ul><li>当程序试图通过反射来创建对象，访问(修改或读取)某个filed，但是该filed不存在就会引发异常</li></ul></li><li>java.lang.EOFException (文件已结束异常)<ul><li>当程序在输入的过程中遇到文件或流的结尾时，引发异常。因此该异常用于检查是否达到文件或流的结尾</li></ul></li><li>java.lang.InstantiationException (实例化异常)</li><li>java.lang.InterruptedException (被中止异常)<ul><li>当某个线程处于长时间的等待、休眠或其他暂停状态，而此时其他的线程通过Thread的interrupt方法终止该线程时抛出该异常。</li></ul></li><li>java.lang.OutOfMemoryException (内存不足错误)<ul><li>当可用内存不足以让Java虚拟机分配给一个对象时抛出该错误。</li></ul></li><li>java.lang.NoClassDefFoundException (未找到类定义错误)<ul><li>当Java虚拟机或者类装载器试图实例化某个类，而找不到该类的定义时抛出该错误。</li><li>违背安全原则异常：SecturityException</li><li>操作数据库异常：SQLException</li><li>输入输出异常：IOException</li><li>通信异常：SocketException</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA Note </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+            <tag> Exception </tag>
             
         </tags>
       
