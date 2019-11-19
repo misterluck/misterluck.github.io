@@ -31,9 +31,9 @@
     
     
     <entry>
-      <title>spring_annotation_enable</title>
-      <link href="/2018/01/09/spring-annotation-enable/"/>
-      <url>/2018/01/09/spring-annotation-enable/</url>
+      <title>SpringBoot注解</title>
+      <link href="/2018/01/09/spring-base1/"/>
+      <url>/2018/01/09/spring-base1/</url>
       
         <content type="html"><![CDATA[<h1 id="Enable-注解"><a href="#Enable-注解" class="headerlink" title="Enable*注解"></a>Enable*注解</h1><ul><li>@EnableAspectJAutoProxy开启对AspectJ自动代理的支持</li><li>@EnableAsync开启异步方法的支持</li><li>@EnableScheduling开启计划任务的支持</li><li>@EnableWebMvc开启Web MVC的配置支持</li><li>@EnableConfigurationProperties开启对@ConfigurationProperties注解配置Bean的支持</li><li>@EnableJpaRepositories开启对Spring Data JPA Repository的支持</li><li>@EnableTransactionManagement开启注解式事务的支持</li><li>@EnableCaching开启注解式的缓存支持</li></ul>]]></content>
       
@@ -42,6 +42,8 @@
           
           <category> JAVA Note </category>
           
+          <category> SpringBoot </category>
+          
       </categories>
       
       
@@ -49,7 +51,9 @@
             
             <tag> JAVA </tag>
             
-            <tag> Spring </tag>
+            <tag> SpringBoot </tag>
+            
+            <tag> Annotation </tag>
             
         </tags>
       
