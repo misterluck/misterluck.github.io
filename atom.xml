@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-14T11:53:00.611Z</updated>
+  <updated>2019-11-19T09:21:25.878Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,61 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>java-base3</title>
+    <title>JAVA基础(三)</title>
     <link href="http://yoursite.com/2019/11/14/java-base3/"/>
     <id>http://yoursite.com/2019/11/14/java-base3/</id>
     <published>2019-11-14T11:53:00.000Z</published>
-    <updated>2019-11-14T11:53:00.611Z</updated>
+    <updated>2019-11-19T09:21:25.878Z</updated>
     
     <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JAVA基础(二)</title>
-    <link href="http://yoursite.com/2019/10/25/java-base2/"/>
-    <id>http://yoursite.com/2019/10/25/java-base2/</id>
-    <published>2019-10-25T03:58:02.000Z</published>
-    <updated>2019-11-18T10:46:26.615Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Collection容器"><a href="#Collection容器" class="headerlink" title="Collection容器"></a>Collection容器</h1><h2 id="容器介绍"><a href="#容器介绍" class="headerlink" title="容器介绍"></a>容器介绍</h2><ul><li><p>Collection表示一组对象，它是集中、收集的意思，就是把一些数据收集起来。</p></li><li><p>Collection函数库在java.util包下的一些接口和类，类是用来产生对象存放数据用的，而接口是访问数据的方式。</p></li><li><p>Collection函数库与数组的两点不同：</p><ol><li>数组的容量是有限制的，而Collection库没有这样的限制，它容量可以自动的调节。</li><li>Collection函数库只能用来存放对象，而数组没有这样的限制。</li></ol></li><li><p>Collection接口是Collection层次结构中的根接口，它定义了一些最基本的访问方法，让我们能用统一的方式通过它或它的子接口来访问数据。</p></li><li><p>区别：Collection代表一组对象，Collection函数库就是JAVA中的集合框架，Collection接口是这个集合框架中的根接口。</p></li><li><p>存放在Collection库中的数据被称为元素(element)。</p></li></ul><p><img src="https://misterluck.oss-cn-beijing.aliyuncs.com/1574073712.jpg" alt="title"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Collection容器&quot;&gt;&lt;a href=&quot;#Collection容器&quot; class=&quot;headerlink&quot; title=&quot;Collection容器&quot;&gt;&lt;/a&gt;Collection容器&lt;/h1&gt;&lt;h2 id=&quot;容器介绍&quot;&gt;&lt;a href=&quot;#容器介绍&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="JAVA Note" scheme="http://yoursite.com/categories/JAVA-Note/"/>
-    
-    
-      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JAVA基础(一)</title>
-    <link href="http://yoursite.com/2019/10/15/java-base1/"/>
-    <id>http://yoursite.com/2019/10/15/java-base1/</id>
-    <published>2019-10-15T14:28:19.000Z</published>
-    <updated>2019-10-22T12:20:53.078Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="JAVA数据类型"><a href="#JAVA数据类型" class="headerlink" title="JAVA数据类型"></a>JAVA数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><table><thead><tr><th>类型</th><th align="center">byte</th><th align="center">short</th><th align="center">char</th><th align="center">int</th><th align="center">float</th><th align="center">double</th><th align="center">long</th><th align="right">boolean</th></tr></thead><tbody><tr><td>字节数</td><td align="center">1</td><td align="center">2</td><td align="center">2</td><td align="center">4</td><td align="center">4</td><td align="center">8</td><td align="center">8</td><td align="right">&nbsp;</td></tr></tbody></table><h2 id="C语言基本数据类型"><a href="#C语言基本数据类型" class="headerlink" title="C语言基本数据类型"></a>C语言基本数据类型</h2><table><thead><tr><th>类型</th><th align="center">char</th><th align="center">short</th><th align="center">int</th><th align="center">float</th><th align="center">double</th><th align="center">long</th><th align="center">signed</th><th align="right">unsigned</th></tr></thead><tbody><tr><td>字节数</td><td align="center">1</td><td align="center">2</td><td align="center">4</td><td align="center">4</td><td align="center">8</td><td align="center">4</td><td align="center">有符号</td><td align="right">无符号</td></tr></tbody></table><h1 id="JAVA与C数据类型转换"><a href="#JAVA与C数据类型转换" class="headerlink" title="JAVA与C数据类型转换"></a>JAVA与C数据类型转换</h1><ol><li>JAVA语言中的int、float、double、short类型，可以直接用c语言中的类型代替。</li><li>JAVA语言中的long可以用C语言中的long long代替</li><li>C语言中的char可以用JAVA语言中的byte代替</li><li>C语言中的long可以用JAVA语言中的int代替</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;JAVA数据类型&quot;&gt;&lt;a href=&quot;#JAVA数据类型&quot; class=&quot;headerlink&quot; title=&quot;JAVA数据类型&quot;&gt;&lt;/a&gt;JAVA数据类型&lt;/h1&gt;&lt;h2 id=&quot;基本数据类型&quot;&gt;&lt;a href=&quot;#基本数据类型&quot; class=&quot;headerli
-      
     
     </summary>
     
@@ -195,6 +147,58 @@
       <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JAVA基础(一)</title>
+    <link href="http://yoursite.com/2016/08/07/java-base1/"/>
+    <id>http://yoursite.com/2016/08/07/java-base1/</id>
+    <published>2016-08-07T03:21:19.000Z</published>
+    <updated>2019-11-19T09:20:33.414Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JAVA数据类型"><a href="#JAVA数据类型" class="headerlink" title="JAVA数据类型"></a>JAVA数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><table><thead><tr><th>类型</th><th align="center">byte</th><th align="center">short</th><th align="center">char</th><th align="center">int</th><th align="center">float</th><th align="center">double</th><th align="center">long</th><th align="right">boolean</th></tr></thead><tbody><tr><td>字节数</td><td align="center">1</td><td align="center">2</td><td align="center">2</td><td align="center">4</td><td align="center">4</td><td align="center">8</td><td align="center">8</td><td align="right">&nbsp;</td></tr></tbody></table><h2 id="C语言基本数据类型"><a href="#C语言基本数据类型" class="headerlink" title="C语言基本数据类型"></a>C语言基本数据类型</h2><table><thead><tr><th>类型</th><th align="center">char</th><th align="center">short</th><th align="center">int</th><th align="center">float</th><th align="center">double</th><th align="center">long</th><th align="center">signed</th><th align="right">unsigned</th></tr></thead><tbody><tr><td>字节数</td><td align="center">1</td><td align="center">2</td><td align="center">4</td><td align="center">4</td><td align="center">8</td><td align="center">4</td><td align="center">有符号</td><td align="right">无符号</td></tr></tbody></table><h1 id="JAVA与C数据类型转换"><a href="#JAVA与C数据类型转换" class="headerlink" title="JAVA与C数据类型转换"></a>JAVA与C数据类型转换</h1><ol><li>JAVA语言中的int、float、double、short类型，可以直接用c语言中的类型代替。</li><li>JAVA语言中的long可以用C语言中的long long代替</li><li>C语言中的char可以用JAVA语言中的byte代替</li><li>C语言中的long可以用JAVA语言中的int代替</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;JAVA数据类型&quot;&gt;&lt;a href=&quot;#JAVA数据类型&quot; class=&quot;headerlink&quot; title=&quot;JAVA数据类型&quot;&gt;&lt;/a&gt;JAVA数据类型&lt;/h1&gt;&lt;h2 id=&quot;基本数据类型&quot;&gt;&lt;a href=&quot;#基本数据类型&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="JAVA Note" scheme="http://yoursite.com/categories/JAVA-Note/"/>
+    
+    
+      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JAVA基础(二)</title>
+    <link href="http://yoursite.com/2016/06/17/java-base2/"/>
+    <id>http://yoursite.com/2016/06/17/java-base2/</id>
+    <published>2016-06-17T14:09:02.000Z</published>
+    <updated>2019-11-19T09:20:57.272Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Collection容器"><a href="#Collection容器" class="headerlink" title="Collection容器"></a>Collection容器</h1><h2 id="容器介绍"><a href="#容器介绍" class="headerlink" title="容器介绍"></a>容器介绍</h2><ul><li><p>Collection表示一组对象，它是集中、收集的意思，就是把一些数据收集起来。</p></li><li><p>Collection函数库在java.util包下的一些接口和类，类是用来产生对象存放数据用的，而接口是访问数据的方式。</p></li><li><p>Collection函数库与数组的两点不同：</p><ol><li>数组的容量是有限制的，而Collection库没有这样的限制，它容量可以自动的调节。</li><li>Collection函数库只能用来存放对象，而数组没有这样的限制。</li></ol></li><li><p>Collection接口是Collection层次结构中的根接口，它定义了一些最基本的访问方法，让我们能用统一的方式通过它或它的子接口来访问数据。</p></li><li><p>区别：Collection代表一组对象，Collection函数库就是JAVA中的集合框架，Collection接口是这个集合框架中的根接口。</p></li><li><p>存放在Collection库中的数据被称为元素(element)。</p></li></ul><h2 id="接口分布"><a href="#接口分布" class="headerlink" title="接口分布"></a>接口分布</h2><p><img src="https://misterluck.oss-cn-beijing.aliyuncs.com/1574073712.jpg" alt="接口分布"></p><h2 id="接口介绍"><a href="#接口介绍" class="headerlink" title="接口介绍"></a>接口介绍</h2><ul><li>Collection:容器</li><li>Set:无序不可重复 HashSet是Set的接口实现类</li><li>List:有序可重复</li><li>Map:有键值对(key,value) HashMap是Map的接口实现类</li></ul><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><ul><li>add()</li><li>isEmpty() 如果此对象不包含元素,则返回true</li><li>iterator() 返回此对象的迭代器</li><li>clear() 移除对象中所有元素</li><li>remove(Object) 移除指定对象</li><li>removeAll(Conllection c) 移除对象中c所包含的所有元素</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Collection容器&quot;&gt;&lt;a href=&quot;#Collection容器&quot; class=&quot;headerlink&quot; title=&quot;Collection容器&quot;&gt;&lt;/a&gt;Collection容器&lt;/h1&gt;&lt;h2 id=&quot;容器介绍&quot;&gt;&lt;a href=&quot;#容器介绍&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="JAVA Note" scheme="http://yoursite.com/categories/JAVA-Note/"/>
+    
+    
+      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
     
   </entry>
   
