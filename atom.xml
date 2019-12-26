@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-03T15:55:49.739Z</updated>
+  <updated>2019-12-26T10:30:57.952Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker安装</title>
+    <link href="http://yoursite.com/2019/12/26/docker-base1/"/>
+    <id>http://yoursite.com/2019/12/26/docker-base1/</id>
+    <published>2019-12-26T10:04:17.000Z</published>
+    <updated>2019-12-26T10:30:57.952Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h1><h2 id="无rpm源安装"><a href="#无rpm源安装" class="headerlink" title="无rpm源安装"></a>无rpm源安装</h2><ul><li>下载Docker的:<a href="https://download.docker.com/linux/centos/7/x86_64/stable/Packages/" target="_blank" rel="noopener">RPM地址</a></li><li>下载Docker依赖的:<a href="https://pkgs.org/" target="_blank" rel="noopener">RPM地址</a></li><li>需要先安装依赖的RPM包再安装Docker的RPM包，安装顺序如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh libsepol-2.5-10.el7.x86_64.rpm  --nodeps --force</span><br><span class="line">rpm -Uvh libselinux-2.5-14.1.el7.x86_64.rpm --nodeps --force</span><br><span class="line">rpm -Uvh libselinux-utils-2.5-14.1.el7.x86_64.rpm --nodeps --force</span><br><span class="line">rpm -Uvh libsemanage-2.5-14.el7.x86_64.rpm --nodeps --force</span><br><span class="line">rpm -ivh policycoreutils-2.5-29.el7.x86_64.rpm --nodeps --force</span><br><span class="line">rpm -ivh selinux-policy-3.13.1-229.el7.noarch.rpm --nodeps --force</span><br><span class="line">rpm -ivh selinux-policy-targeted-3.13.1-229.el7.noarch.rpm --nodeps --force</span><br><span class="line">rpm -ivh container-selinux-2.68-1.el7.noarch.rpm --nodeps --force</span><br><span class="line">rpm -ivh docker-ce-18.06.1.ce-3.el7.x86_64.rpm --nodeps --force</span><br></pre></td></tr></table></figure></li></ul><h2 id="Centos安装Docker"><a href="#Centos安装Docker" class="headerlink" title="Centos安装Docker"></a>Centos安装Docker</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 添加docker-ce软件源信息</span><br><span class="line">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line">// 安装docker-ce</span><br><span class="line">yum -y install docker-ce</span><br><span class="line"></span><br><span class="line">// 修改docker存储位置</span><br><span class="line">vi /usr/lib/systemd/system/docker.service</span><br><span class="line"></span><br><span class="line">// 在里面的EXECStart的后面增加后如下:</span><br><span class="line">ExecStart=/usr/bin/dockerd --graph /home/docker</span><br><span class="line">// 重新enable 一下docker 服务 重新进行软连接 以及进行一次 daemon-reload</span><br><span class="line">systemctl disable docker</span><br><span class="line">systemctl enable docker</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure><h1 id="常用的Docker命令"><a href="#常用的Docker命令" class="headerlink" title="常用的Docker命令"></a>常用的Docker命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">// 普通用户使用docker</span><br><span class="line">groupadd docker</span><br><span class="line">gpasswd -a $&#123;USER&#125; docker</span><br><span class="line"></span><br><span class="line">// 启动docker服务</span><br><span class="line">service docker start</span><br><span class="line">systemctl start docker</span><br><span class="line"></span><br><span class="line">// docker版本信息</span><br><span class="line">docker version</span><br><span class="line"></span><br><span class="line">// 搜索镜像</span><br><span class="line">docker search 镜像名</span><br><span class="line"></span><br><span class="line">// 查看存在的镜像</span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line">// 查看docker运行的容器</span><br><span class="line">docker ps</span><br><span class="line"></span><br><span class="line">// 查看所有容器</span><br><span class="line">docker ps -a</span><br><span class="line"></span><br><span class="line">// 查看所有容器ID</span><br><span class="line">docker ps -a -q</span><br><span class="line"></span><br><span class="line">// 进入正在运行的容器</span><br><span class="line">docker exec -it 容器ID /bin/bash</span><br><span class="line"></span><br><span class="line">// 启动所有容器</span><br><span class="line">docker start $(docker ps -a -q)</span><br><span class="line"></span><br><span class="line">// 停止所有容器</span><br><span class="line">docker stop $(docker ps -a -q)</span><br><span class="line"></span><br><span class="line">// 删除所有容器</span><br><span class="line">docker rm $(docker ps -a -q)</span><br><span class="line"></span><br><span class="line">// 容器生命周期相关指令</span><br><span class="line">docker create/start/stop/pause/unpause 容器ID</span><br><span class="line"></span><br><span class="line">// 导出镜像</span><br><span class="line">docker save $image_name:$tag -o 镜像快照名.tar</span><br><span class="line">// 例如</span><br><span class="line">docker save zookeeper:3.4 -o zookeeper.tar</span><br><span class="line"></span><br><span class="line">// 导入镜像</span><br><span class="line">docker load -i 镜像快照名.tar</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Docker安装&quot;&gt;&lt;a href=&quot;#Docker安装&quot; class=&quot;headerlink&quot; title=&quot;Docker安装&quot;&gt;&lt;/a&gt;Docker安装&lt;/h1&gt;&lt;h2 id=&quot;无rpm源安装&quot;&gt;&lt;a href=&quot;#无rpm源安装&quot; class=&quot;header
+      
+    
+    </summary>
+    
+    
+      <category term="Docker_Note" scheme="http://yoursite.com/categories/Docker-Note/"/>
+    
+      <category term="Soft_Install" scheme="http://yoursite.com/categories/Docker-Note/Soft-Install/"/>
+    
+    
+      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Nexus</title>
@@ -136,39 +164,13 @@
   </entry>
   
   <entry>
-    <title>JAVA基础(一)</title>
-    <link href="http://yoursite.com/2016/08/07/java-base1/"/>
-    <id>http://yoursite.com/2016/08/07/java-base1/</id>
-    <published>2016-08-07T03:21:19.000Z</published>
-    <updated>2019-11-19T09:38:04.618Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="JAVA数据类型"><a href="#JAVA数据类型" class="headerlink" title="JAVA数据类型"></a>JAVA数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><table><thead><tr><th>类型</th><th align="center">byte</th><th align="center">short</th><th align="center">char</th><th align="center">int</th><th align="center">float</th><th align="center">double</th><th align="center">long</th><th align="right">boolean</th></tr></thead><tbody><tr><td>字节数</td><td align="center">1</td><td align="center">2</td><td align="center">2</td><td align="center">4</td><td align="center">4</td><td align="center">8</td><td align="center">8</td><td align="right">&nbsp;</td></tr></tbody></table><h2 id="C语言基本数据类型"><a href="#C语言基本数据类型" class="headerlink" title="C语言基本数据类型"></a>C语言基本数据类型</h2><table><thead><tr><th>类型</th><th align="center">char</th><th align="center">short</th><th align="center">int</th><th align="center">float</th><th align="center">double</th><th align="center">long</th><th align="center">signed</th><th align="right">unsigned</th></tr></thead><tbody><tr><td>字节数</td><td align="center">1</td><td align="center">2</td><td align="center">4</td><td align="center">4</td><td align="center">8</td><td align="center">4</td><td align="center">有符号</td><td align="right">无符号</td></tr></tbody></table><h1 id="JAVA与C数据类型转换"><a href="#JAVA与C数据类型转换" class="headerlink" title="JAVA与C数据类型转换"></a>JAVA与C数据类型转换</h1><ol><li>JAVA语言中的int、float、double、short类型，可以直接用c语言中的类型代替。</li><li>JAVA语言中的long可以用C语言中的long long代替</li><li>C语言中的char可以用JAVA语言中的byte代替</li><li>C语言中的long可以用JAVA语言中的int代替</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;JAVA数据类型&quot;&gt;&lt;a href=&quot;#JAVA数据类型&quot; class=&quot;headerlink&quot; title=&quot;JAVA数据类型&quot;&gt;&lt;/a&gt;JAVA数据类型&lt;/h1&gt;&lt;h2 id=&quot;基本数据类型&quot;&gt;&lt;a href=&quot;#基本数据类型&quot; class=&quot;headerli
-      
-    
-    </summary>
-    
-    
-      <category term="JAVA Note" scheme="http://yoursite.com/categories/JAVA-Note/"/>
-    
-    
-      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JAVA基础(三)</title>
     <link href="http://yoursite.com/2016/06/17/java-base2/"/>
     <id>http://yoursite.com/2016/06/17/java-base2/</id>
     <published>2016-06-17T14:09:02.000Z</published>
-    <updated>2019-11-19T09:38:25.083Z</updated>
+    <updated>2019-12-26T10:07:06.179Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Collection容器"><a href="#Collection容器" class="headerlink" title="Collection容器"></a>Collection容器</h1><h2 id="容器介绍"><a href="#容器介绍" class="headerlink" title="容器介绍"></a>容器介绍</h2><ul><li><p>Collection表示一组对象，它是集中、收集的意思，就是把一些数据收集起来。</p></li><li><p>Collection函数库在java.util包下的一些接口和类，类是用来产生对象存放数据用的，而接口是访问数据的方式。</p></li><li><p>Collection函数库与数组的两点不同：</p><ol><li>数组的容量是有限制的，而Collection库没有这样的限制，它容量可以自动的调节。</li><li>Collection函数库只能用来存放对象，而数组没有这样的限制。</li></ol></li><li><p>Collection接口是Collection层次结构中的根接口，它定义了一些最基本的访问方法，让我们能用统一的方式通过它或它的子接口来访问数据。</p></li><li><p>区别：Collection代表一组对象，Collection函数库就是JAVA中的集合框架，Collection接口是这个集合框架中的根接口。</p></li><li><p>存放在Collection库中的数据被称为元素(element)。</p></li></ul><h2 id="接口分布"><a href="#接口分布" class="headerlink" title="接口分布"></a>接口分布</h2><p><img src="https://misterluck.oss-cn-beijing.aliyuncs.com/1574073712.jpg" alt="接口分布"></p><h2 id="接口介绍"><a href="#接口介绍" class="headerlink" title="接口介绍"></a>接口介绍</h2><ul><li>Collection:容器</li><li>Set:无序不可重复 HashSet是Set的接口实现类</li><li>List:有序可重复</li><li>Map:有键值对(key,value) HashMap是Map的接口实现类</li></ul><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><ul><li>add()</li><li>isEmpty() 如果此对象不包含元素,则返回true</li><li>iterator() 返回此对象的迭代器</li><li>clear() 移除对象中所有元素</li><li>remove(Object) 移除指定对象</li><li>removeAll(Conllection c) 移除对象中c所包含的所有元素</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="Collection容器"><a href="#Collection容器" class="headerlink" title="Collection容器"></a>Collection容器</h1><h2 id="容器介绍"><a href="#容器介绍" class="headerlink" title="容器介绍"></a>容器介绍</h2><ul><li><p>Collection表示一组对象，它是集中、收集的意思，就是把一些数据收集起来。</p></li><li><p>Collection函数库在java.util包下的一些接口和类，类是用来产生对象存放数据用的，而接口是访问数据的方式。</p></li><li><p>Collection函数库与数组的两点不同：</p><ol><li>数组的容量是有限制的，而Collection库没有这样的限制，它容量可以自动的调节。</li><li>Collection函数库只能用来存放对象，而数组没有这样的限制。</li></ol></li><li><p>Collection接口是Collection层次结构中的根接口，它定义了一些最基本的访问方法，让我们能用统一的方式通过它或它的子接口来访问数据。</p></li><li><p>区别：Collection代表一组对象，Collection函数库就是JAVA中的集合框架，Collection接口是这个集合框架中的根接口。</p></li><li><p>存放在Collection库中的数据被称为元素(element)。</p></li></ul><h2 id="接口分布"><a href="#接口分布" class="headerlink" title="接口分布"></a>接口分布</h2><p><img src="https://misterluck.oss-cn-beijing.aliyuncs.com/1574073712.jpg" alt="接口分布"></p><h2 id="接口介绍"><a href="#接口介绍" class="headerlink" title="接口介绍"></a>接口介绍</h2><ul><li>Collection:容器</li><li>Set:无序不可重复 HashSet是Set的接口实现类</li><li>List:有序可重复</li><li>Map:有键值对(key,value) HashMap是Map的接口实现类</li></ul><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><table><thead><tr><th align="center">方法</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">boolean add(Object element)</td><td align="center">添加元素到容器中</td></tr><tr><td align="center">boolean remove(Object element)</td><td align="center">从容器中移除元素</td></tr><tr><td align="center">boolean contains(Object element)</td><td align="center">容器中是否包含该元素</td></tr><tr><td align="center">int size()</td><td align="center">容器中元素的数量</td></tr><tr><td align="center">boolean isEmpty()</td><td align="center">容器是否为空</td></tr><tr><td align="center">void clear()</td><td align="center">清空容器中所有元素</td></tr><tr><td align="center">Iterator iterator()</td><td align="center">获得迭代器, 用于遍历所有元素</td></tr><tr><td align="center">boolean containsAll(Collection c)</td><td align="center">本容器是否包含c容器中的所有元素</td></tr><tr><td align="center">boolean addAll(Collection c)</td><td align="center">将容器c中所有元素增加到本容器</td></tr><tr><td align="center">boolean removeAll(Collection c)</td><td align="center">移除本容器和容器c中</td></tr></tbody></table><ul><li>add()</li><li>isEmpty() 如果此对象不包含元素,则返回true</li><li>iterator() 返回此对象的迭代器</li><li>clear() 移除对象中所有元素</li><li>remove(Object) 移除指定对象</li><li>removeAll(Conllection c) 移除对象中c所包含的所有元素</li></ul>]]></content>
     
     <summary type="html">
     
@@ -180,7 +182,7 @@
     </summary>
     
     
-      <category term="JAVA Note" scheme="http://yoursite.com/categories/JAVA-Note/"/>
+      <category term="JAVA_Note" scheme="http://yoursite.com/categories/JAVA-Note/"/>
     
     
       <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
@@ -194,7 +196,7 @@
     <link href="http://yoursite.com/2016/06/16/java-base3/"/>
     <id>http://yoursite.com/2016/06/16/java-base3/</id>
     <published>2016-06-16T08:35:00.000Z</published>
-    <updated>2019-11-19T09:38:28.607Z</updated>
+    <updated>2019-12-26T10:07:10.077Z</updated>
     
     <content type="html"><![CDATA[<h1 id="JAVA异常处理过程"><a href="#JAVA异常处理过程" class="headerlink" title="JAVA异常处理过程"></a>JAVA异常处理过程</h1><ol><li>JAVA采用面向对象的方式来处理异常的。</li><li>抛出异常：在执行一个方法时，如果发生异常，则这个方法生成代表该异常的一个对象，停止当前执行路径，并把异常对象提交给JRE。</li><li>捕获异常：JRE得到该异常后，寻找相应的代码来处理该异常。JRE在方法的调用栈中查找，从生成异常的方法开始回溯，直到找到相应的异常处理代码为止。</li></ol><h1 id="JAVA捕获异常"><a href="#JAVA捕获异常" class="headerlink" title="JAVA捕获异常"></a>JAVA捕获异常</h1><h2 id="JRE捕获异常"><a href="#JRE捕获异常" class="headerlink" title="JRE捕获异常"></a>JRE捕获异常</h2><p><strong>例如：int i = 1/0;编译器未作出检查抛出的异常为UnCheckedException，JRE自动new异常对象进行抛出。</strong></p><h2 id="手动捕获异常-try-catch块"><a href="#手动捕获异常-try-catch块" class="headerlink" title="手动捕获异常(try catch块)"></a>手动捕获异常(try catch块)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//代码</span></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            <span class="comment">//处理代码时发生异常</span></span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">//无论是否发生异常都执行的代码块</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><h1 id="JAVA常见异常"><a href="#JAVA常见异常" class="headerlink" title="JAVA常见异常"></a>JAVA常见异常</h1><ul><li>Java.lang.NullPointerException (空指针异常)</li><li>java.lang.ClassNotFoundException (指定的类不存在)<ul><li>这里主要考虑一下类的名称和路径是否正确即可，通常都是程序试图通过字符串来加载某个类时可能引发异常。</li><li>例如：调用Class.forName();调用ClassLoad的finaSystemClass();或者LoadClass();</li></ul></li><li>java.lang.NumberFormatException (字符串转换为数字异常)</li><li>java.lang.IndexOutOfBoundsException (数组下标越界异常)</li><li>java.lang.IllegalArgumentException (方法的参数错误)<ul><li>比如g.setColor(int red,int green,int blue)这个方法中的三个值，如果有超过２５５的也会出现这个异常，因此一旦发现这个异常，我们要做的，就是赶紧去检查一下方法调用中的参数传递是不是出现了错误。</li></ul></li><li>java.lang.IllegalAccessException (没有访问权限)</li><li>java.lang.ArithmeticException (数学运算异常)<ul><li>当算术运算中出现了除以零这样的运算就会出这样的异常。</li></ul></li><li>java.lang.ClassCastException (数据类型转换异常)</li><li>java.lang.FileNotFoundException (文件未找到异常)<ul><li>当程序试图打开一个不存在的文件进行读写时将会引发该异常。该异常由FileInputStream,FileOutputStream,RandomAccessFile的构造器声明抛出即使被操作的文件存在，但是由于某些原因不可访问，比如打开一个只读文件进行写入，这些构造方法仍然会引发异常</li></ul></li><li>java.lang.ArrayStoreException (数组存储异常)<ul><li>将类型不兼容类型的对象存入数组时将引发异常</li></ul></li><li>java.lang.NoSuchMethodException (方法不存在异常)<ul><li>当程序试图通过反射来创建对象，访问(修改或读取)某个方法，但是该方法不存在就会引发异常</li></ul></li><li>java.lang.NoSuchFiledException (Filed不存在异常)<ul><li>当程序试图通过反射来创建对象，访问(修改或读取)某个filed，但是该filed不存在就会引发异常</li></ul></li><li>java.lang.EOFException (文件已结束异常)<ul><li>当程序在输入的过程中遇到文件或流的结尾时，引发异常。因此该异常用于检查是否达到文件或流的结尾</li></ul></li><li>java.lang.InstantiationException (实例化异常)</li><li>java.lang.InterruptedException (被中止异常)<ul><li>当某个线程处于长时间的等待、休眠或其他暂停状态，而此时其他的线程通过Thread的interrupt方法终止该线程时抛出该异常。</li></ul></li><li>java.lang.OutOfMemoryException (内存不足错误)<ul><li>当可用内存不足以让Java虚拟机分配给一个对象时抛出该错误。</li></ul></li><li>java.lang.NoClassDefFoundException (未找到类定义错误)<ul><li>当Java虚拟机或者类装载器试图实例化某个类，而找不到该类的定义时抛出该错误。</li><li>违背安全原则异常：SecturityException</li><li>操作数据库异常：SQLException</li><li>输入输出异常：IOException</li><li>通信异常：SocketException</li></ul></li></ul>]]></content>
     
@@ -210,12 +212,38 @@
     </summary>
     
     
-      <category term="JAVA Note" scheme="http://yoursite.com/categories/JAVA-Note/"/>
+      <category term="JAVA_Note" scheme="http://yoursite.com/categories/JAVA-Note/"/>
     
     
       <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
     
       <category term="Exception" scheme="http://yoursite.com/tags/Exception/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JAVA基础(一)</title>
+    <link href="http://yoursite.com/2016/06/07/java-base1/"/>
+    <id>http://yoursite.com/2016/06/07/java-base1/</id>
+    <published>2016-06-07T03:21:19.000Z</published>
+    <updated>2019-12-26T10:07:01.424Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JAVA数据类型"><a href="#JAVA数据类型" class="headerlink" title="JAVA数据类型"></a>JAVA数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><table><thead><tr><th>类型</th><th align="center">byte</th><th align="center">short</th><th align="center">char</th><th align="center">int</th><th align="center">float</th><th align="center">double</th><th align="center">long</th><th align="right">boolean</th></tr></thead><tbody><tr><td>字节数</td><td align="center">1</td><td align="center">2</td><td align="center">2</td><td align="center">4</td><td align="center">4</td><td align="center">8</td><td align="center">8</td><td align="right">&nbsp;</td></tr></tbody></table><h2 id="C语言基本数据类型"><a href="#C语言基本数据类型" class="headerlink" title="C语言基本数据类型"></a>C语言基本数据类型</h2><table><thead><tr><th>类型</th><th align="center">char</th><th align="center">short</th><th align="center">int</th><th align="center">float</th><th align="center">double</th><th align="center">long</th><th align="center">signed</th><th align="right">unsigned</th></tr></thead><tbody><tr><td>字节数</td><td align="center">1</td><td align="center">2</td><td align="center">4</td><td align="center">4</td><td align="center">8</td><td align="center">4</td><td align="center">有符号</td><td align="right">无符号</td></tr></tbody></table><h1 id="JAVA与C数据类型转换"><a href="#JAVA与C数据类型转换" class="headerlink" title="JAVA与C数据类型转换"></a>JAVA与C数据类型转换</h1><ol><li>JAVA语言中的int、float、double、short类型，可以直接用c语言中的类型代替。</li><li>JAVA语言中的long可以用C语言中的long long代替</li><li>C语言中的char可以用JAVA语言中的byte代替</li><li>C语言中的long可以用JAVA语言中的int代替</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;JAVA数据类型&quot;&gt;&lt;a href=&quot;#JAVA数据类型&quot; class=&quot;headerlink&quot; title=&quot;JAVA数据类型&quot;&gt;&lt;/a&gt;JAVA数据类型&lt;/h1&gt;&lt;h2 id=&quot;基本数据类型&quot;&gt;&lt;a href=&quot;#基本数据类型&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="JAVA_Note" scheme="http://yoursite.com/categories/JAVA-Note/"/>
+    
+    
+      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
     
   </entry>
   

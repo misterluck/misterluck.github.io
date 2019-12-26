@@ -97,7 +97,7 @@
 <meta property="og:description" content="Collection容器容器介绍 Collection表示一组对象，它是集中、收集的意思，就是把一些数据收集起来。  Collection函数库在java.util包下的一些接口和类，类是用来产生对象存放数据用的，而接口是访问数据的方式。  Collection函数库与数组的两点不同：  数组的容量是有限制的，而Collection库没有这样的限制，它容量可以自动的调节。 Collection函数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://misterluck.oss-cn-beijing.aliyuncs.com/1574073712.jpg">
-<meta property="og:updated_time" content="2019-11-19T09:38:25.083Z">
+<meta property="og:updated_time" content="2019-12-26T10:07:06.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA基础(三)">
 <meta name="twitter:description" content="Collection容器容器介绍 Collection表示一组对象，它是集中、收集的意思，就是把一些数据收集起来。  Collection函数库在java.util包下的一些接口和类，类是用来产生对象存放数据用的，而接口是访问数据的方式。  Collection函数库与数组的两点不同：  数组的容量是有限制的，而Collection库没有这样的限制，它容量可以自动的调节。 Collection函数">
@@ -361,7 +361,7 @@
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/JAVA-Note/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA Note</span>
+                    <span itemprop="name">JAVA_Note</span>
                   </a>
                 </span>
 
@@ -422,7 +422,55 @@
 <li>List:有序可重复</li>
 <li>Map:有键值对(key,value) HashMap是Map的接口实现类</li>
 </ul>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><ul>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">boolean add(Object element)</td>
+<td align="center">添加元素到容器中</td>
+</tr>
+<tr>
+<td align="center">boolean remove(Object element)</td>
+<td align="center">从容器中移除元素</td>
+</tr>
+<tr>
+<td align="center">boolean contains(Object element)</td>
+<td align="center">容器中是否包含该元素</td>
+</tr>
+<tr>
+<td align="center">int size()</td>
+<td align="center">容器中元素的数量</td>
+</tr>
+<tr>
+<td align="center">boolean isEmpty()</td>
+<td align="center">容器是否为空</td>
+</tr>
+<tr>
+<td align="center">void clear()</td>
+<td align="center">清空容器中所有元素</td>
+</tr>
+<tr>
+<td align="center">Iterator iterator()</td>
+<td align="center">获得迭代器, 用于遍历所有元素</td>
+</tr>
+<tr>
+<td align="center">boolean containsAll(Collection c)</td>
+<td align="center">本容器是否包含c容器中的所有元素</td>
+</tr>
+<tr>
+<td align="center">boolean addAll(Collection c)</td>
+<td align="center">将容器c中所有元素增加到本容器</td>
+</tr>
+<tr>
+<td align="center">boolean removeAll(Collection c)</td>
+<td align="center">移除本容器和容器c中</td>
+</tr>
+</tbody></table>
+<ul>
 <li>add()</li>
 <li>isEmpty() 如果此对象不包含元素,则返回true</li>
 <li>iterator() 返回此对象的迭代器</li>
@@ -482,8 +530,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/07/java-base1/" rel="prev" title="JAVA基础(一)">
-                JAVA基础(一) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/18/nginx-base1/" rel="prev" title="Linux安装Nginx">
+                Linux安装Nginx <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -561,7 +609,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -572,7 +620,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -583,7 +631,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
