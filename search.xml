@@ -15,7 +15,7 @@
           
           <category> Docker_Note </category>
           
-          <category> Soft_Install </category>
+          <category> Install </category>
           
       </categories>
       
@@ -67,7 +67,7 @@
       
       <categories>
           
-          <category> JAVA Note </category>
+          <category> JAVA_Note </category>
           
           <category> SpringBoot </category>
           
@@ -77,8 +77,6 @@
         <tags>
             
             <tag> JAVA </tag>
-            
-            <tag> SpringBoot </tag>
             
             <tag> Annotation </tag>
             
@@ -127,14 +125,14 @@
           
           <category> Nginx </category>
           
+          <category> Install </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> Nginx </tag>
-            
-            <tag> Install </tag>
             
         </tags>
       
